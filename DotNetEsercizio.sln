@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetEsercizio", "DotNetEsercizio\DotNetEsercizio.csproj", "{50C28BD7-5455-436A-9F24-A38F4E3E42BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetEsercizioTest", "DotNetEsercizioTest\DotNetEsercizioTest.csproj", "{C4ADCA54-DBCF-47D7-9C09-04ED5F345475}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{50C28BD7-5455-436A-9F24-A38F4E3E42BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50C28BD7-5455-436A-9F24-A38F4E3E42BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50C28BD7-5455-436A-9F24-A38F4E3E42BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4ADCA54-DBCF-47D7-9C09-04ED5F345475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4ADCA54-DBCF-47D7-9C09-04ED5F345475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4ADCA54-DBCF-47D7-9C09-04ED5F345475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4ADCA54-DBCF-47D7-9C09-04ED5F345475}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

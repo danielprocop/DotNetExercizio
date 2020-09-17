@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.IO;
 
 namespace DotNetEsercizio
 {
@@ -6,7 +9,18 @@ namespace DotNetEsercizio
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var services = ConfigureServices();
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            serviceProvider.GetService<App>().Run();
+        }
+        private static IServiceCollection ConfigureServices()
+        {
+            IServiceCollection services = new ServiceCollection();
+            //Add custom services
+            services.AddSingleton<App>();
+            return services;
         }
     }
 }
