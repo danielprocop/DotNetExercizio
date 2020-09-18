@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
 
@@ -20,6 +19,7 @@ namespace DotNetEsercizio
             IServiceCollection services = new ServiceCollection();
             //Add custom services
             services.AddSingleton<App>();
+            services.AddSingleton<IRandomGenerator,RandomGenerator>();
             return services;
         }
     }
