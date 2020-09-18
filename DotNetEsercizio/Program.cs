@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using DotNetEsercizio.Core;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.IO;
 
@@ -6,21 +8,27 @@ namespace DotNetEsercizio
 {
     class Program
     {
+        public static IConfigurationRoot Configuration { get; set; }
         static void Main(string[] args)
         {
-            var services = ConfigureServices();
+            var builder = new ConfigurationBuilder();
+            builder.SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            Configuration = builder.Build();
 
-            var serviceProvider = services.BuildServiceProvider();
+            IServiceCollection services = new ServiceCollection();
+            services
+                .Configure<Settings>(Configuration.GetSection(nameof(Settings)))
+                .AddOptions()
+            //Add custom services
+                .AddSingleton<App>()
+                .AddSingleton<IRandomGenerator, RandomGenerator>()
+                .BuildServiceProvider();
+
+            ServiceProvider serviceProvider = services.BuildServiceProvider();
 
             serviceProvider.GetService<App>().Run();
         }
-        private static IServiceCollection ConfigureServices()
-        {
-            IServiceCollection services = new ServiceCollection();
-            //Add custom services
-            services.AddSingleton<App>();
-            services.AddSingleton<IRandomGenerator,RandomGenerator>();
-            return services;
-        }
+
     }
 }
